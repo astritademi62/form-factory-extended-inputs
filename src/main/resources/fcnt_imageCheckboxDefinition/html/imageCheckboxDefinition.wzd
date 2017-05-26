@@ -10,7 +10,7 @@ checkbox {
     propertiesI18n {
         helptext "Help"
         checkboxes {
-            values "checkboxone":"Checkbox One","checkboxtwo":"Checkbox Two","checkboxthree":"Checkbox Three"
+            values "checkboxone":"http://www.gettyimages.co.uk/gi-resources/images/Embed/new/embed2.jpg","checkboxtwo":"https://www.w3schools.com/css/trolltunga.jpg","checkboxthree":"https://images-assets.nasa.gov/image/PIA20912/PIA20912~thumb.jpg"
         }
     }
 }

@@ -19,7 +19,7 @@
                  *Do this only if input has not previously been initialized
                  *This way we do not override the values if we are moving back and forth through the steps
                  *Where different forms of serialization could occur.
-                 * */ console.log("here");
+                 * */
                 if (scope.input.value === null) {
                     scope.input.value = [];
                 } else if(angular.isString(scope.input.value)){
@@ -28,6 +28,10 @@
                 if (angular.isString(scope.input.checkboxes)) {
                     scope.input.checkboxes = angular.fromJson(scope.input.checkboxes);
                     console.log(scope.input.checkboxes);
+                }
+
+                scope.updateCheckedImageBox = function (checkboxOption) {
+                    checkboxOption.selected = !checkboxOption.selected;
                 }
             }
         }]);
