@@ -7,7 +7,7 @@
             var directive = {
                 restrict: 'E',
                 templateUrl: function(el, attrs) {
-                    return ffTemplateResolver.resolveTemplatePath('${formfactory:addFormFactoryModulePath('/form-factory-definitions/imagecheckbox', renderContext)}', attrs.viewType);
+                    return ffTemplateResolver.resolveTemplatePath('${formfactory:addFormFactoryModulePath('/form-factory-definitions/image-checkbox', renderContext)}', attrs.viewType);
                 },
                 link: linkFunc
             };
@@ -19,7 +19,7 @@
                  *Do this only if input has not previously been initialized
                  *This way we do not override the values if we are moving back and forth through the steps
                  *Where different forms of serialization could occur.
-                 * */
+                 * */ console.log("here");
                 if (scope.input.value === null) {
                     scope.input.value = [];
                 } else if(angular.isString(scope.input.value)){
@@ -29,4 +29,5 @@
                     scope.input.checkboxes = angular.fromJson(scope.input.checkboxes);
                     console.log(scope.input.checkboxes);
                 }
+            }
         }]);
