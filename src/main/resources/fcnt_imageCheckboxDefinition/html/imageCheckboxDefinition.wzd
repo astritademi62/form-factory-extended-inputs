@@ -1,0 +1,16 @@
+package fcnt_imageCheckBoxDefinition.html
+
+checkbox {
+    label "Image Checkbox"
+    template "<ff-image-checkbox></ff-image-checkbox>"
+    wizard "<ff-image-checkbox view-type='designView'></ff-image-checkbox>"
+    supportedValidationTypes "required", "checkbox", "number"
+    supportedLogicTypes "valid", "checkbox"
+    choiceField "checkboxes"
+    propertiesI18n {
+        helptext "Help"
+        checkboxes {
+            values "checkboxone":"Checkbox One","checkboxtwo":"Checkbox Two","checkboxthree":"Checkbox Three"
+        }
+    }
+}
