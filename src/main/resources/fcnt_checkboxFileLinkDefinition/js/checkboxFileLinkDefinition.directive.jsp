@@ -1,13 +1,14 @@
-<%@ page contentType="text/javascript" %>
+<%--checkbox with file link directive--%>
+    <%@ page contentType="text/javascript" %>
     <%@ taglib prefix="formfactory" uri="http://www.jahia.org/formfactory/functions" %>
     <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 
     angular.module('formFactory')
-        .directive('ffImageCheckbox', ['$log', '_', 'ffTemplateResolver', function ($log, _, ffTemplateResolver) {
+        .directive('ffCheckboxFileLink', ['$log', '_', 'ffTemplateResolver', function ($log, _, ffTemplateResolver) {
             var directive = {
                 restrict: 'E',
                 templateUrl: function(el, attrs) {
-                    return ffTemplateResolver.resolveTemplatePath('${formfactory:addFormFactoryModulePath('/form-factory-definitions/imageCheckbox', renderContext)}', attrs.viewType);
+                    return ffTemplateResolver.resolveTemplatePath('${formfactory:addFormFactoryModulePath('/form-factory-definitions/checkbox-file-link', renderContext)}', attrs.viewType);
                 },
                 link: linkFunc
             };
@@ -27,11 +28,6 @@
                 }
                 if (angular.isString(scope.input.checkboxes)) {
                     scope.input.checkboxes = angular.fromJson(scope.input.checkboxes);
-                    console.log(scope.input.checkboxes);
-                }
-
-                scope.updateCheckedImageBox = function (checkboxOption) {
-                    checkboxOption.selected = !checkboxOption.selected;
                 }
             }
         }]);

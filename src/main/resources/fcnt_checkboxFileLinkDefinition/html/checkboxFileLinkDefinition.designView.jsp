@@ -1,3 +1,4 @@
+<%--checkbox with file link design view--%>
 <div class="row">
     <div class="col-md-12">
         <div class="row" ng-if="!inTranslateMode">
@@ -19,7 +20,7 @@
         <label>
             <span message-key="ff.label.changeLabel"></span>
         </label>
-            <input type="text" class="form-control" ng-model="input.label"/>
+        <input type="text" class="form-control" ng-model="input.label"/>
         <br/>
         <label>
             <span message-key="ff.label.changeHelpText"></span>
@@ -27,8 +28,8 @@
         <input type="text" class="form-control" ng-model="input.helptext"/>
         <br/>
         <ff-key-value-maker ng-if="input.checkboxes"
-                            input="input"
                             read-only="readOnly"
+                            input="input"
                             property="checkboxes"
                             multiple-default-value-selection="true"
                             in-translate-mode="inTranslateMode">

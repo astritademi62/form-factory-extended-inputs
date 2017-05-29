@@ -1,16 +1,24 @@
-<!-- Multiple Checkboxes (inline) -->
+<!-- Image Checkboxes -->
 <style>
     .checkboxBackground {
-        border-radius: 5px; line-height: 0.9; max-height:20px; max-width:20px; background-color: beige;
+        border-radius: 4px; line-height: 0.85; max-height:20px; max-width:20px; background-color: #d9d9d9;
+        opacity: .75;
     }
     .checkboxPositionDiv {
         position:absolute; display:inline-block; top: 5px; right: 5px; float: right;
+        box-shadow: inset 0px 2px 10px 0px rgba(0,0,0,0.7);
+        border-radius: 4px;
+        opacity: .90;
     }
     .imageContainer {
         position:relative; display:inline-block;
         border: 2px solid #666;
         max-height: 204px;
         border-radius: 10px;
+        min-height: 204px;
+        min-width: 204px;
+        max-width: 204px;
+        height: 204px;
     }
 
     .imageContainer:hover {
@@ -19,8 +27,13 @@
         opacity: .75;
         box-shadow: 6px 6px 12px -2px rgba(0,0,0,0.7);
     }
+
     .imageCheckbox {
-        border-radius: 7px
+        border-radius: 7px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
     }
 </style>
 
@@ -53,10 +66,7 @@
                     <i class="checkboxBackground fa fa-2x"
                     ng-class="{ 'fa-square-o': !checkboxOption.selected, 'fa-check-square-o' : checkboxOption.selected }"></i>
                 </div>
-                <p>
-                    <img class="imageCheckbox" src="{{ checkboxOption.value }}" width="200" height="200" />
-                </p>
-
+                    <img class="imageCheckbox" src="{{ checkboxOption.value }}" />
             </div>
             <%--<span src=""></span>--%>
         </label>

@@ -8,3 +8,4 @@
 <fcmix = 'http://www.jahia.org/jahia/fc/mix/1.0'>
 
 [fcnt:imageCheckboxDefinition] > jnt:content, fcmix:definition, mix:title, jmix:droppableContent, jmix:hiddenType
+[fcnt:checkboxFileLinkDefinition] > jnt:content, fcmix:definition, mix:title, jmix:droppableContent, jmix:hiddenType

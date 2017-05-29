@@ -1,0 +1,16 @@
+package fcnt_checkboxFileLinkDefinition.html
+
+checkbox {
+    label "Checkbox File Link"
+    template "<ff-checkbox-file-link></ff-checkbox-file-link>"
+    wizard "<ff-checkbox-file-link view-type='designView'></ff-checkbox-file-link>"
+    supportedValidationTypes "required", "checkbox", "number"
+    supportedLogicTypes "valid", "checkbox"
+    choiceField "checkbox"
+    propertiesI18n {
+        helptext "Help"
+        checkboxes {
+            values "checkboxone":"Checkbox One"
+        }
+    }
+}
