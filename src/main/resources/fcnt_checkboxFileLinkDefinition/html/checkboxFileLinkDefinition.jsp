@@ -20,9 +20,10 @@
                        checklist-value="checkboxOption.key"
                        checklist-change="makeDirty(); ffValidate()"
                        ng-model-options="{'allowInvalid':true}"
-                       ng-disabled="readOnly">
-                I have read and agree to the <a href="#">Terms and Conditions</a>.
+                       ng-disabled="readOnly" />
+                <span ng-bind-html="getFormattedMessage()"></span>
             </label>
+
         </div>
         <span class="help-block"
               ng-show="input.helptext != undefined">

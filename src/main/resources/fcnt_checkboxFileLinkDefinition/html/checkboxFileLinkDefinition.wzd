@@ -6,9 +6,11 @@ checkbox {
     wizard "<ff-checkbox-file-link view-type='designView'></ff-checkbox-file-link>"
     supportedValidationTypes "required", "checkbox", "number"
     supportedLogicTypes "valid", "checkbox"
-    choiceField "checkbox"
+    choiceField "checkboxes,links"
     propertiesI18n {
         helptext "Help"
+        link "https://images-assets.nasa.gov/image/PIA20912/PIA20912~thumb.jpg"
+        termsLabel "I have read and agree to the {insert anchor label}."
         checkboxes {
             values "checkboxone":"Checkbox One"
         }

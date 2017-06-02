@@ -64,11 +64,11 @@
             <div class="imageContainer" ng-click="updateCheckedImageBox(checkboxOption)">
                 <div class="checkboxPositionDiv">
                     <i class="checkboxBackground fa fa-2x"
-                    ng-class="{ 'fa-square-o': !checkboxOption.selected, 'fa-check-square-o' : checkboxOption.selected }"></i>
+                       ng-class="{ 'fa-square-o': !checkboxOption.selected, 'fa-check-square-o' : checkboxOption.selected }"></i>
                 </div>
                     <img class="imageCheckbox" src="{{ checkboxOption.value }}" />
             </div>
-            <%--<span src=""></span>--%>
+
         </label>
         <span class="help-block"
               ng-show="input.helptext != undefined">

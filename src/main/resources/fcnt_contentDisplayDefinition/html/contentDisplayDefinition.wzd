@@ -1,0 +1,16 @@
+package fcnt_contentDisplayDefinition.html
+
+info {
+    label "Content Display"
+    template "<ff-content-display></ff-content-display>"
+    wizard "<ff-content-display view-type='designView'></ff-content-display>"
+    properties {
+        displayBorder "true"
+        displayTitle "true"
+        titlePosition ""
+    }
+    propertiesI18n {
+        title "Title"
+        body "Example content body"
+    }
+}

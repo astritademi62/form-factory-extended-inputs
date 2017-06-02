@@ -27,12 +27,16 @@
         </label>
         <input type="text" class="form-control" ng-model="input.helptext"/>
         <br/>
-        <ff-key-value-maker ng-if="input.checkboxes"
-                            read-only="readOnly"
-                            input="input"
-                            property="checkboxes"
-                            multiple-default-value-selection="true"
-                            in-translate-mode="inTranslateMode">
-        </ff-key-value-maker>
+        <label>
+            <span message-key="ff.label.changeTerms"></span>
+        </label>
+        <input type="text" class="form-control" ng-model="input.termsLabel"/>
+        <br>
+        <label>
+        <span message-key="ff.label.changeLink"></span>
+    </label>
+        <input type="text" class="form-control" ng-model="input.link"/>
+        <br>
+
     </div>
 </div>

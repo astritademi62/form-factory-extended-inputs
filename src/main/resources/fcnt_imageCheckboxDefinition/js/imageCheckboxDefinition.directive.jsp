@@ -7,7 +7,7 @@
             var directive = {
                 restrict: 'E',
                 templateUrl: function(el, attrs) {
-                    return ffTemplateResolver.resolveTemplatePath('${formfactory:addFormFactoryModulePath('/form-factory-definitions/imageCheckbox', renderContext)}', attrs.viewType);
+                    return ffTemplateResolver.resolveTemplatePath('${formfactory:addFormFactoryModulePath('/form-factory-definitions/image-checkbox', renderContext)}', attrs.viewType);
                 },
                 link: linkFunc
             };
@@ -27,7 +27,6 @@
                 }
                 if (angular.isString(scope.input.checkboxes)) {
                     scope.input.checkboxes = angular.fromJson(scope.input.checkboxes);
-                    console.log(scope.input.checkboxes);
                 }
 
                 scope.updateCheckedImageBox = function (checkboxOption) {

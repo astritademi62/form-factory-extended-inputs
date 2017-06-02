@@ -4,7 +4,7 @@
     <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 
     angular.module('formFactory')
-        .directive('ffCheckboxFileLink', ['$log', '_', 'ffTemplateResolver', function ($log, _, ffTemplateResolver) {
+        .directive('ffCheckboxFileLink', ['$log', '_', 'ffTemplateResolver', '$sce', function ($log, _, ffTemplateResolver, $sce) {
             var directive = {
                 restrict: 'E',
                 templateUrl: function(el, attrs) {
@@ -28,6 +28,15 @@
                 }
                 if (angular.isString(scope.input.checkboxes)) {
                     scope.input.checkboxes = angular.fromJson(scope.input.checkboxes);
+                }
+
+                scope.getFormattedMessage  = function() {
+                    var startIndex = scope.input.termsLabel.indexOf('{');
+                    var endIndex = scope.input.termsLabel.indexOf('}')
+                    var label = scope.input.termsLabel.substring(0, startIndex);
+                    label += '<a href="' + scope.input.link + '">' + scope.input.termsLabel.substring(startIndex + 1, endIndex) + '</a>' + scope.input.termsLabel.substring(endIndex + 1);
+                    console.log(label);
+                    return $sce.trustAsHtml(label);
                 }
             }
         }]);
