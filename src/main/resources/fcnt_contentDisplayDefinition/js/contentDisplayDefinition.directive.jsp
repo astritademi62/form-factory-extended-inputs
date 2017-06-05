@@ -45,12 +45,18 @@
                 $scope.input.displayBorder = $scope.input.displayBorder == 'true'
             }
             $timeout(function(){
-                if (!$scope.input.bodyId) {
-                    $scope.input.bodyId = $ffRH.registerRenderDirective($element.find('.contentDisplayBody'), $scope, angular.copy($scope.input.body));
-                }
                 titleEl = angular.element('#' + $scope.input.name);
-                bodyEl = angular.element('.contentDisplayBody');
-                cdc.updateTitlePosition();
+                bodyEl = titleEl.parent().siblings('.contentDisplayBody');
+                if ($element.find('.contentDisplayBody').length == 0) {
+                    //This is the design view directive, so we need to get the bodyId from the builderInput view.
+                    $scope.input.bodyId = bodyEl.attr('id');
+                } else if (!$scope.input.bodyId) {
+                    //Unregistered designview directive, register it now.
+                    $scope.input.bodyId = $ffRH.registerRenderDirective(bodyEl, $scope, angular.copy($scope.input.body));
+                    //set the id onto the contentDisplayBody div element.
+                    bodyEl.attr('id', $scope.input.bodyId);
+                    cdc.updateTitlePosition();
+                }
             });
         };
 
