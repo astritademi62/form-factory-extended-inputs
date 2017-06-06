@@ -9,4 +9,5 @@
 
 [fcnt:imageCheckboxDefinition] > jnt:content, fcmix:definition, mix:title, jmix:droppableContent, jmix:hiddenType
 [fcnt:checkboxFileLinkDefinition] > jnt:content, fcmix:definition, mix:title, jmix:droppableContent, jmix:hiddenType
-[fcnt:contentDisplayDefinition] > jnt:content, fcmix:definition, mix:title, jmix:droppableContent, jmix:hiddenType
+//[fcnt:contentDisplayDefinition] > jnt:content, fcmix:definition, mix:title, jmix:droppableContent, jmix:hiddenType
+[fcnt:advancedFileInputDefinition] > jnt:content, fcmix:definition, mix:title, jmix:droppableContent, jmix:hiddenType
