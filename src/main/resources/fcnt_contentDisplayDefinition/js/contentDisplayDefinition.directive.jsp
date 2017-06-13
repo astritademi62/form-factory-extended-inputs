@@ -58,6 +58,8 @@
                     cdc.updateTitlePosition();
                 }
             });
+
+            //Apply custom class
         };
 
         cdc.onUpdateEditor = function() {

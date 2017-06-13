@@ -26,7 +26,8 @@
     <div class="col-sm-12">
         <div class="form-group">
             <label message-key="ff.label.bodyContent"></label>
-            <text-angular ng-change="cdc.onUpdateEditor()" ng-model="input.body"></text-angular>
+            <textarea class="ckarea form-control"  rows="5" cols="60" ckeditor init-callback="cdc.onEditorInitialization()" ng-change="cdc.onUpdateEditor()" ng-model="input.body">
+            </textarea>
         </div>
     </div>
 </div>
