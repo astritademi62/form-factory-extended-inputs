@@ -4,12 +4,14 @@ input {
     label "Advanced File Input"
     template "<ff-advanced-file-input></ff-advanced-file-input>"
     wizard "<ff-advanced-file-input view-type='designView'></ff-advanced-file-input>"
+    supportedValidationTypes "required", "files"
+    supportedLogicTypes "valid"
     properties {
-        displayBorder "true"
-        displayTitle "true"
-        titlePosition ""
+        options {
+            values "showPreview":"true", "fileFrequency":"single_file", "browseLabel":"Browse ..."
+        }
     }
     propertiesI18n {
-
+        helptext "Help"
     }
 }

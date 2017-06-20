@@ -6,9 +6,9 @@
     <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 
     (function (){
-        var advancedFileInput = function (ffTemplateResolver){
+        var advancedFileInput = function (ffTemplateResolver, $compile){
             return {
-                restrict: 'EA',
+                restrict: 'E',
                 require: ['^ffController'],
                 controller:AdvancedFileInputController,
                 controllerAs: 'afic',
@@ -20,20 +20,78 @@
             };
 
             function linkFunction(scope, el, attr, ctrl) {
+
             }
         };
 
         angular
             .module('formFactory')
-            .directive('ffAdvancedFileInput', ['ffTemplateResolver', advancedFileInput]);
+            .directive('ffAdvancedFileInput', ['ffTemplateResolver', '$compile', advancedFileInput]);
 
-        var AdvancedFileInputController = function () {
+        var AdvancedFileInputController = function ($scope, $timeout, $filter,
+                                                    i18n, $element, $document) {
             var afic = this;
+            afic.parsed = {};
+            afic.i18nMessageGetter = i18n.message;
+
+            afic.imageOnlyFileConfig = {
+                browseLabel: 'shmeckles'
+            }
+
+            var modeWatch = $scope.$watch(function() {
+                return !_.isEmpty(afic.mode);
+            }, function(isDefined) {
+               if (isDefined) {
+                   console.log('is defined');
+                   console.log(afic.mode);
+                   if (afic.mode == 'builderLive'){
+                       $scope.$watch('input.options', function() {
+                           console.log($scope.input.options);
+                           afic.optionsConfig = null;
+                           afic.optionsConfig = angular.copy(afic.createOptionsConfig());
+
+                           console.log(afic.optionsConfig);
+                       });
+                   } else {
+                       afic.showPreview = parseOptions('showPreview').value;
+                       afic.fileFrequency = parseOptions('fileFrequency').value;
+                       afic.browseLabel = parseOptions('browseLabel').value;
+                   }
+                   modeWatch();
+               }
+            }, true);
+            afic.setMode = function(mode) {
+                afic.mode = mode;
+            }
+            afic.createOptionsConfig = function(){
+                var optionsConfig = {};
+                optionsConfig['showPreview'] = parseOptions('showPreview').value;
+                optionsConfig['browseLabel'] = parseOptions('browseLabel').value;
+                return optionsConfig;
+            }
 
             afic.$onInit = function () {
-               console.log('controller is initialized');
+
             };
+
+            afic.updateOptionsConfig = function(property, value) {
+                parseOptions(property, value);
+                $scope.input.options = angular.copy($scope.input.options);
+            }
+
+            function parseOptions(option, value) {
+                for (var i = 0; i < $scope.input.options.length; i++) {
+                    if ($scope.input.options[i].key == option) {
+                        if (value === undefined) {
+                            return $scope.input.options[i];
+                        } else {
+                            return $scope.input.options[i].value = value;
+                        }
+                    }
+                }
+            }
         };
 
-        AdvancedFileInputController.$inject = [];
+        AdvancedFileInputController.$inject = ['$scope',
+            '$timeout', '$filter', 'i18nService', '$element', '$document'];
     })();
