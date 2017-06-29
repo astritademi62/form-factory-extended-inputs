@@ -20,6 +20,7 @@
         };
 
         function linkFunction(scope, el, attr, ctrl) {
+            scope.cdc.mode = attr.viewType === "designView" ? "design" : "live";
         }
     };
     var contentDisplayController = function($scope, $ffRH, $timeout, $filter,
@@ -27,6 +28,7 @@
         var cdc = this;
         cdc.parsed = {};
         cdc.i18nMessageGetter = i18n.message;
+        cdc.mode = "";
         var titleEl;
         var bodyEl;
         cdc.$onInit = function() {
@@ -47,10 +49,10 @@
             $timeout(function(){
                 titleEl = angular.element('#' + $scope.input.name);
                 bodyEl = titleEl.parent().siblings('.contentDisplayBody');
-                if ($element.find('.contentDisplayBody').length == 0) {
+                if (cdc.mode === "design") {
                     //This is the design view directive, so we need to get the bodyId from the builderInput view.
                     $scope.input.bodyId = bodyEl.attr('id');
-                } else if (!$scope.input.bodyId) {
+                } else if (cdc.mode === "live") {
                     //Unregistered designview directive, register it now.
                     $scope.input.bodyId = $ffRH.registerRenderDirective(bodyEl, $scope, angular.copy($scope.input.body));
                     //set the id onto the contentDisplayBody div element.

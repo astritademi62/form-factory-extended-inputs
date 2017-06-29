@@ -1,4 +1,5 @@
 <!-- Image Checkboxes -->
+<%--TODO !!! REMOVE STYLES FROM JSP !!!--%>
 <style>
     .checkboxBackground {
         border-radius: 4px; line-height: 0.85; max-height:20px; max-width:20px; background-color: #d9d9d9;
@@ -6,13 +7,13 @@
     }
     .checkboxPositionDiv {
         position:absolute; display:inline-block; top: 5px; right: 5px; float: right;
-        box-shadow: inset 0px 2px 10px 0px rgba(0,0,0,0.7);
+        /*box-shadow: inset 0px 2px 10px 0px rgba(0,0,0,0.7);*/
         border-radius: 4px;
         opacity: .90;
     }
     .imageContainer {
         position:relative; display:inline-block;
-        border: 2px solid #666;
+        /*border: 2px solid #666;*/
         max-height: 204px;
         border-radius: 10px;
         min-height: 204px;
@@ -22,10 +23,10 @@
     }
 
     .imageContainer:hover {
-        margin-left:-5px;
-        margin-top: -5px;
+        /*margin-left:-5px;*/
+        /*margin-top: -5px;*/
         opacity: .75;
-        box-shadow: 6px 6px 12px -2px rgba(0,0,0,0.7);
+        /*box-shadow: 6px 6px 12px -2px rgba(0,0,0,0.7);*/
     }
 
     .imageCheckbox {
