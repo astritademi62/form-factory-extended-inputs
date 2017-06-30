@@ -62,7 +62,10 @@
                    ng-model-options="{'allowInvalid':true}"
                    ng-disabled="readOnly">
 
-            <div class="imageContainer" ng-click="updateCheckedImageBox(checkboxOption)">
+            <div class="imageContainer"
+                 ng-click="updateCheckedImageBox(checkboxOption)"
+                 ff-focus-tracker="{{input.name}}"
+                 tabindex="0">
                 <div class="checkboxPositionDiv">
                     <i class="checkboxBackground fa fa-2x"
                        ng-class="{ 'fa-square-o': !checkboxOption.selected, 'fa-check-square-o' : checkboxOption.selected }"></i>
