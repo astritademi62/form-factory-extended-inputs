@@ -47,17 +47,22 @@
                 $scope.input.displayBorder = $scope.input.displayBorder == 'true'
             }
             $timeout(function(){
-                titleEl = angular.element('#' + $scope.input.name);
-                bodyEl = titleEl.parent().siblings('.contentDisplayBody');
+                titleEl = angular.element('#' + $scope.input.name + '_title');
+                bodyEl = angular.element('#' + $scope.input.name + '_body');
                 if (cdc.mode === "design") {
                     //This is the design view directive, so we need to get the bodyId from the builderInput view.
-                    $scope.input.bodyId = bodyEl.attr('id');
+                    $scope.input.bodyId = bodyEl.attr('data-render-id');
                 } else if (cdc.mode === "live") {
                     //Unregistered designview directive, register it now.
                     $scope.input.bodyId = $ffRH.registerRenderDirective(bodyEl, $scope, angular.copy($scope.input.body));
                     //set the id onto the contentDisplayBody div element.
-                    bodyEl.attr('id', $scope.input.bodyId);
-                    cdc.updateTitlePosition();
+                    bodyEl.attr('data-render-id', $scope.input.bodyId);
+                    if ($scope.input.displayTitle) {
+                        cdc.updateTitlePosition();
+                    }
+                    $scope.$on('$destroy', function() {
+                        $ffRH.deregisterRenderDirective($scope.input.bodyId);
+                    });
                 }
             });
 
@@ -72,13 +77,16 @@
             if ($scope.input.displayTitle) {
                 //Wait for digest cycle to complete so that element is available
                 $timeout(function() {
-                    titleEl = angular.element('#' + $scope.input.name);
+                    titleEl = angular.element('#' + $scope.input.name + '_title');
                     cdc.updateTitlePosition();
                 });
             }
         };
 
         cdc.updateTitlePosition = function(action) {
+            if (!$scope.input.displayTitle) {
+                return;
+            }
             var offset = .05;
             switch (action) {
                 case 'indent':

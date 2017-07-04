@@ -5,10 +5,10 @@
     <div class="col-sm-12">
         <div ng-class="{'input-wrap': input.displayBorder, 'bottom5': input.displayBorder}">
             <div style="display:inline-block;height:10px;background-color:#ffffff">
-                <h3 id="{{input.name}}" class="contentDisplayTitle" ng-if="input.displayTitle">{{$scope.input.title}}</h3>
+                <h3 id="{{input.name}}_title" class="contentDisplayTitle" ng-if="input.displayTitle">{{$scope.input.title}}</h3>
             </div>
             <br/>
-            <div class="contentDisplayBody">
+            <div id="{{input.name}}_body" class="contentDisplayBody">
                 <ff-render-html model="input.body"></ff-render-html>
             </div>
         </div>
