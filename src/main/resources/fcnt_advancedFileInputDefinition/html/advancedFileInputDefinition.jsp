@@ -1,4 +1,4 @@
-<div class="form-group" ng-init="afic.setMode('builderLive')"
+<div class="form-group"
      ng-class="{'has-error': form[input.name].$invalid&&form[input.name].$dirty}"
      ng-show="resolveLogic()">
     <label class="col-sm-2 control-label">
@@ -9,9 +9,9 @@
         </span>
     </label>
 
-    <div class="col-sm-10" ff-validations ff-logic>
+    <div class="col-sm-10" ff-validations ff-logic ng-load="afic.refreshInput">
 
-        <input id="afi_input" type="file" class="file-loading" multiple angular-bfi >
+        <input id='afi_input' type="file" class="form-control file-loading" angular-bfi >
         <%--<div class="upload-avatar">--%>
             <%--<label>Upload Avatar</label>--%>
 
@@ -45,11 +45,11 @@
             <%--<input id="input-d" name="inputd[]" class="file file-loading" type="file" multiple--%>
                    <%--angular-bfi="afic.presetFilesConfig" >--%>
         <%--</div>--%>
-        <br>
-        <div class="specific-acception-fileinput">
-            <label>Accepts Image Only</label>
-            <input id="input-e" class="file file-loading" type="file" accept="image/*" angular-bfi="afic.imageOnlyFileConfig" >
-        </div>
+        <%--<br>--%>
+        <%--<div class="specific-acception-fileinput">--%>
+            <%--<label>Accepts Image Only</label>--%>
+            <%--<input id='input-e' class="file file-loading" type="file" accept="image/*" angular-bfi="afic.imageOnlyFileConfig" >--%>
+        <%--</div>--%>
         <%--<br>--%>
         <%--<div class="specified-max-and-filetypes-fileinput">--%>
             <%--<label>Maximum of 10 of Specified File Types with Drag and Drop Dock</label>--%>

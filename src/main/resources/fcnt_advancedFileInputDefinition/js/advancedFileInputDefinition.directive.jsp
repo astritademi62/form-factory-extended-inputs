@@ -34,8 +34,15 @@
             afic.parsed = {};
             afic.i18nMessageGetter = i18n.message;
 
-            afic.imageOnlyFileConfig = {
-                browseLabel: 'shmeckles'
+            //example
+            <%--afic.imageOnlyFileConfig = {--%>
+                <%--showPreview: true,--%>
+                <%--browseLabel: 'shmeckles'--%>
+            <%--}--%>
+            //----example
+
+            afic.refreshInput = function() {
+                angular.element('#afi_input').fileinput('refresh');
             }
 
             var modeWatch = $scope.$watch(function() {
@@ -49,7 +56,8 @@
                            console.log($scope.input.options);
                            afic.optionsConfig = null;
                            afic.optionsConfig = angular.copy(afic.createOptionsConfig());
-
+                           afic.refreshInput();
+                           console.log(angular.element('#afi_input'));
                            console.log(afic.optionsConfig);
                        });
                    } else {
@@ -71,7 +79,9 @@
             }
 
             afic.$onInit = function () {
-
+                console.log(afic.imageOnlyFileConfig);
+                angular.element('#afi_input').refresh();
+                angular.element('#input-e').refresh();
             };
 
             afic.updateOptionsConfig = function(property, value) {
