@@ -35,7 +35,6 @@
                     var endIndex = scope.input.termsLabel.indexOf('}')
                     var label = scope.input.termsLabel.substring(0, startIndex);
                     label += '<a href="' + scope.input.link + '">' + scope.input.termsLabel.substring(startIndex + 1, endIndex) + '</a>' + scope.input.termsLabel.substring(endIndex + 1);
-                    console.log(label);
                     return $sce.trustAsHtml(label);
                 }
             }

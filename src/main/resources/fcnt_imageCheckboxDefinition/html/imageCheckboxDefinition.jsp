@@ -16,7 +16,7 @@
 
     <div class="col-sm-10" ff-validations ff-logic>
 
-        <label class="checkbox-inline" ng-repeat="checkboxOption in input.checkboxes">
+        <label class="checkbox-inline" ng-repeat="checkboxOption in input.checkboxes | filter: 'true' : null : visible">
 
             <input type="checkbox"
                    class="hidden"

@@ -3,7 +3,7 @@
     <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 
     angular.module('formFactory')
-        .directive('ffImageCheckbox', ['$log', '_', 'ffTemplateResolver', function ($log, _, ffTemplateResolver) {
+        .directive('ffImageCheckbox', ['ffTemplateResolver', function (ffTemplateResolver) {
             var directive = {
                 restrict: 'E',
                 templateUrl: function(el, attrs) {
@@ -28,7 +28,12 @@
                 if (angular.isString(scope.input.checkboxes)) {
                     scope.input.checkboxes = angular.fromJson(scope.input.checkboxes);
                 }
-
+                //set visible property if it hasnt been set yet.
+                for (var i in scope.input.checkboxes) {
+                    if (scope.input.checkboxes[i].visible == null) {
+                        scope.input.checkboxes[i].visible = true;
+                    }
+                }
                 scope.updateCheckedImageBox = function (checkboxOption) {
                     checkboxOption.selected = !checkboxOption.selected;
                 }
