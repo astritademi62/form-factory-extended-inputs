@@ -4,15 +4,13 @@ checkbox {
     label "Checkbox File Link"
     template "<ff-checkbox-file-link></ff-checkbox-file-link>"
     wizard "<ff-checkbox-file-link view-type='designView'></ff-checkbox-file-link>"
-    supportedValidationTypes "required", "checkbox", "number"
+    supportedValidationTypes "required"
     supportedLogicTypes "valid", "checkbox"
     choiceField "checkboxes,links"
     propertiesI18n {
         helptext "Help"
         link "https://images-assets.nasa.gov/image/PIA20912/PIA20912~thumb.jpg"
         termsLabel "I have read and agree to the {insert anchor label}."
-        checkboxes {
-            values "checkboxone":"Checkbox One"
-        }
+        checked "true"
     }
 }

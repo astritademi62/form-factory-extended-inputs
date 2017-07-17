@@ -22,20 +22,22 @@
                  *Where different forms of serialization could occur.
                  * */
                 if (scope.input.value === null) {
-                    scope.input.value = [];
+                    scope.input.value = {rendererName:'checkboxFileLink'};
                 } else if(angular.isString(scope.input.value)){
-                    scope.input.value = angular.fromJson(scope.input.value);
+                    scope.input.value = angular.merge(angular.fromJson(scope.input.value),{rendererName:'checkboxFileLink'});
                 }
-                if (angular.isString(scope.input.checkboxes)) {
-                    scope.input.checkboxes = angular.fromJson(scope.input.checkboxes);
+                if (angular.isString(scope.input.checked)) {
+                    scope.input.checked = angular.fromJson(scope.input.checked);
                 }
 
                 scope.getFormattedMessage  = function() {
                     var startIndex = scope.input.termsLabel.indexOf('{');
                     var endIndex = scope.input.termsLabel.indexOf('}')
                     var label = scope.input.termsLabel.substring(0, startIndex);
-                    label += '<a href="' + scope.input.link + '">' + scope.input.termsLabel.substring(startIndex + 1, endIndex) + '</a>' + scope.input.termsLabel.substring(endIndex + 1);
+                    label += '<a href="' + scope.input.link + '" onclick="window.open(this.href); return false;">'
+                        + scope.input.termsLabel.substring(startIndex + 1, endIndex) + '</a>' + scope.input.termsLabel.substring(endIndex + 1);
                     return $sce.trustAsHtml(label);
                 }
+
             }
         }]);

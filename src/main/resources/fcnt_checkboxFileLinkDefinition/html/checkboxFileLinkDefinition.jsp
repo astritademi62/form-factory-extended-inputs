@@ -11,20 +11,18 @@
     </label>
 
     <div class="col-sm-10" ff-validations ff-logic>
-        <div class="checkbox" ng-show="checkboxOption in input.checkboxes">
-            <sup>&nbsp;<i class="fa fa-asterisk fa-sm " style="opacity: .50; color: red;"></i></sup>
+        <div class="checkbox" ng-show="checkboxOption in input.checked">
             <label>
                 <input type="checkbox"
                        name="{{input.name}}" checklist-model="input.value"
                        ng-required="checkValues()"
-                       checklist-value="checkboxOption.key"
+                       checklist-value="checkboxOption"
                        checklist-change="makeDirty(); ffValidate()"
                        ng-model-options="{'allowInvalid':true}"
                        ng-disabled="readOnly"
-                       ff-focus-tracker="{{input.name}}_{{checkboxOption.key}}"/>
+                       />
                 <span ng-bind-html="getFormattedMessage()"></span>
             </label>
-
         </div>
         <span class="help-block"
               ng-show="input.helptext != undefined">
